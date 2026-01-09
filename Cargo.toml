@@ -1,0 +1,29 @@
+[package]
+name = "tracer-rs"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+authors = ["SuperInstance Team"]
+description = "Distributed tracing made simple - Type-safe, ergonomic tracing for Rust"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/SuperInstance/tracer-rs"
+documentation = "https://docs.rs/tracer-rs"
+keywords = ["tracing", "opentelemetry", "distributed", "observability", "monitoring"]
+categories = ["development-tools::debugging", "development-tools::profiling"]
+readme = "README.md"
+
+[dependencies]
+tokio = { version = "1", features = ["full"], optional = true }
+async-trait = "0.1"
+thiserror = "1.0"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+
+[features]
+default = ["tokio"]
+full = ["tokio", "metrics", "logging"]
+
+[lib]
+name = "tracer_rs"
+path = "src/lib.rs"
